@@ -4,6 +4,10 @@
  */
 class data extends CI_Model
 {
+	public function isExist($id)
+	{
+		return $this->db->query("SELECT * FROM tb_dokumen WHERE dok_id = '$id' ");
+	}
 	
 	public function read($table, $where=null, $id=null, $limit=null,  $order=null, $orderType=null)
 	{

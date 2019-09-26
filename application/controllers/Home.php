@@ -77,6 +77,7 @@ class home extends CI_Controller
 		
 
 		$dok_id = $this->input->post('dok_id');
+		$jumlahDok = $this->data->isExist($dok_id)->num_rows();
 
 		if ($this->input->post('pengembalian') == 'on') {
 
@@ -201,189 +202,184 @@ class home extends CI_Controller
 				'jurnal' => $jurnal,
 
 				'pospk' => $pospk);
-
-		
-
-
-
 		if ($this->data->replace('tb_dokumen', $data)) {
+			if ($jumlahDok == 0 ) {
+				$level = $this->session->userdata('level');
+				switch ($this->session->userdata('level')) {
 
-			$level = $this->session->userdata('level');
+					case 1:
 
-			switch ($this->session->userdata('level')) {
+						if ($tgl_pajak_in != '') {
 
-				case 1:
+							$notif = array(
 
-					if ($tgl_pajak_in != '') {
+								'notif_doc' => $dok_id,
 
-						$notif = array(
+								'notif_status' => 0,
 
-							'notif_doc' => $dok_id,
+								'notif_timestamp' => time(),
 
-							'notif_status' => 0,
+								'notif_user' => 4
 
-							'notif_timestamp' => time(),
+							);
 
-							'notif_user' => 4
+							$this->data->insert('tb_notification', $notif);
 
-						);
+						}
 
-						$this->data->insert('tb_notification', $notif);
-
-					}
-
-					break;
-
-				
-
-				case 2:
-
-					if ($tgl_keuangan != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 3
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}elseif ($tgl_akt_in != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 5
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}elseif ($tgl_pajak_in != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 4
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}elseif ($tgl_admin_in != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 1
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}
-
-					break;
-
-				case 3:
-
-					if ($tgl_keuangan != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 1
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}
-
-					break;
-
-				case 4:
-
-					if ($tgl_akt_in != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 5
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}
-
-					break;
-
-				
-
-				case 5:
-
-					if ($tgl_keuangan != '') {
-
-						$notif = array(
-
-							'notif_doc' => $dok_id,
-
-							'notif_status' => 0,
-
-							'notif_timestamp' => time(),
-
-							'notif_user' => 3
-
-						);
-
-						$this->data->insert('tb_notification', $notif);
-
-					}
-
-					break;
-
-				
-
-				default:
+						break;
 
 					
 
-					break;
+					case 2:
 
+						if ($tgl_keuangan != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 3
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}elseif ($tgl_akt_in != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 5
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}elseif ($tgl_pajak_in != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 4
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}elseif ($tgl_admin_in != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 1
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}
+
+						break;
+
+					case 3:
+
+						if ($tgl_keuangan != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 1
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}
+
+						break;
+
+					case 4:
+
+						if ($tgl_akt_in != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 5
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}
+
+						break;
+
+					
+
+					case 5:
+
+						if ($tgl_keuangan != '') {
+
+							$notif = array(
+
+								'notif_doc' => $dok_id,
+
+								'notif_status' => 0,
+
+								'notif_timestamp' => time(),
+
+								'notif_user' => 3
+
+							);
+
+							$this->data->insert('tb_notification', $notif);
+
+						}
+
+						break;
+
+					
+
+					default:
+
+						
+
+						break;
+
+				}
 			}
-
+			
 			$this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
 
 			redirect(base_url('dokumen'));
@@ -403,6 +399,7 @@ class home extends CI_Controller
 		
 
 	}
+
 
 	public function updateNotif()
 
@@ -499,12 +496,16 @@ class home extends CI_Controller
 	public function coba()
 
 	{
+		$notif = $this->data->getNotif(4)->result_array();
+		echo "<pre>";
+		print_r($notif);
+		echo "</pre>";
+		// ${exit();} 
+		// foreach ($_POST as $key => $value) {
 
-		foreach ($_POST as $key => $value) {
+		//     echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
 
-		    echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
-
-		}
+		// }
 
 	}
 
