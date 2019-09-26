@@ -1,0 +1,54 @@
+.expand{
+	margin-top: 10px;
+	margin-left: 10px;
+	display: none;
+}
+.collapserBTN{
+	display: none;
+	color: red;
+}
+.expanderBTN{
+	color: green;
+}
+.expand p{
+	margin: unset;
+}
+.head{
+	margin-right: 15px;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.data{
+	display: inline-block;
+}
+
+.checkbox{
+	margin-top: 10px;
+}
+.empty-notif span{
+	color: #bcbcbc;
+	font-size: 50px;
+	margin: 10px;
+}
+.empty-notif p{
+	color: #bcbcbc;
+}
+.empty-notif{
+	padding: 10px;
+	text-align: center;
+}
+.notif-aktif{
+	background-color: rgba(145, 186, 240, 0.27);
+}
+@media(max-width: 992px){
+	.head{
+		margin-right: 5px;
+		font-weight: bold;
+		display: block;
+	}
+
+	.data{
+		display: block;
+	}
+}
