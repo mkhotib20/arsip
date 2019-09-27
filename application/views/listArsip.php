@@ -31,6 +31,7 @@
                         <td><?php echo $dk['no_gedung'];?></td>
                         <td><?php echo $dk['no_rak'];?></td>
                         <td><?php echo $dk['jenis_dokumen'];?></td>
+                        <td><?php echo $dk['dep_name'];?></td>
                         <td><a href="<?php echo base_url('dokumen/pengarsipan/lokasi/'.$dk['arsip_id']) ?>" 
                         class="btn btn-warning btn-circle btn-md"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>

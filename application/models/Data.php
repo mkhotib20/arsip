@@ -8,6 +8,10 @@ class data extends CI_Model
 	{
 		return $this->db->query("SELECT * FROM tb_dokumen WHERE dok_id = '$id' ");
 	}
+	public function getArsip()
+	{
+		return $this->db->query("SELECT * FROM tb_arsip, tb_dep WHERE tb_arsip.departemen = tb_dep.dep_id");
+	}
 	
 	public function read($table, $where=null, $id=null, $limit=null,  $order=null, $orderType=null)
 	{

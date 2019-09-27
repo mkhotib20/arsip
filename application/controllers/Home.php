@@ -479,6 +479,15 @@ class home extends CI_Controller
 
 	}
 
+	public function currency()
+	{
+		
+	}
+	public function departemen()
+	{
+		
+	}
+
 	public function setting($id='')
 
 	{

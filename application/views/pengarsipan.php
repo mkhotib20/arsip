@@ -42,6 +42,12 @@
                   </div>
                   <div class="col-6 col-md-4">
                       <div class="form-group">
+                        <span class="label">Bantex</span>
+                        <input type="text" class="form-control" value="<?php echo $bantex ?>"  name="bantex">
+                      </div>
+                  </div>
+                  <div class="col-6 col-md-4">
+                      <div class="form-group">
                         <span class="label">Departemen</span>
                         <select name="departemen" class="form-control" id="">
                           <option selected disabled>--pilih departemen--</option>
@@ -63,6 +69,7 @@
 <script>
     $('input[name="no_gedung"]').removeAttr('readonly')
     $('input[name="no_surat"]').removeAttr('readonly')
+    $('input[name="bantex"]').removeAttr('readonly')
     $('input[name="no_rak"]').removeAttr('readonly')
     $('input[name="jenis_dokumen"]').removeAttr('readonly')
 </script>
