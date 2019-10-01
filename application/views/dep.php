@@ -14,7 +14,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-gorup">
-                      <label>Nama Unit Kerja</label>
+                      <label>Nama Departemen</label>
                       <input type="text" class="form-control" name="dep">
                       <input type="text" value="" hidden="" name="id">
                     </div>
@@ -36,7 +36,7 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Vendor</th>
+                      <th>Nama Departemen</th>
                       <th hidden="">Nama Vendor</th>
                       <th>Action</th>
                     </tr>

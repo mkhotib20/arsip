@@ -17,6 +17,8 @@
         <a class="collapse-item" href="<?php echo base_url('setting/user') ?>">User</a>
 
         <a class="collapse-item" href="<?php echo base_url('setting/vendor') ?>">Vendor</a>
+        <a class="collapse-item" href="<?php echo base_url('setting/departemen') ?>">Departemen</a>
+        <a class="collapse-item" href="<?php echo base_url('setting/currency') ?>">Currency</a>
 
         <a class="collapse-item" href="<?php echo base_url('setting/unit-kerja') ?>">Unit Kerja</a>
 

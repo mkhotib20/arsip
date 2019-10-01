@@ -17,12 +17,6 @@ class setting extends CI_Controller
 		$data = array('role' => $role, 'read' => $read);
 		$this->load->view('user', $data);
 	}
-	public function departemen()
-	{
-		$read = $this->data->read('tb_dep')->result_array();
-		$data = array('dep' => $read);
-		$this->load->view('departmen', $data);
-	}
 	public function deleteStg()
 	{
 		$name = $this->input->post('name');
@@ -47,6 +41,12 @@ class setting extends CI_Controller
 		$read = $this->data->read('tb_dep')->result_array();
 		$data = array('dep' => $read);
 		$this->load->view('dep', $data);
+	}
+	public function currency()
+	{
+		$read = $this->data->read('tb_currency')->result_array();
+		$data = array('cur' => $read);
+		$this->load->view('cur', $data);
 	}
 	public function saveUser()
 	{
@@ -109,6 +109,21 @@ class setting extends CI_Controller
 		if ($this->data->replace('tb_dep', $data)) {
 			$this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
 			redirect(base_url('setting/departemen'));
+		}
+	}
+	public function saveCur()
+	{
+		$uk = $this->input->post('cur');
+		$id = $this->input->post('id');
+
+		$data = array(
+			'id' => $id,
+			'name' => $uk
+
+			 );
+		if ($this->data->replace('tb_currency', $data)) {
+			$this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
+			redirect(base_url('setting/currency'));
 		}
 	}
 
