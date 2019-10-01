@@ -456,8 +456,9 @@ class home extends CI_Controller
 		$vendor = $this->data->read('tb_vendor')->result_array();
 
 		$mitra = $this->data->read('tb_mitra')->result_array();
+		$curs = $this->data->read('tb_currency')->result_array();
 
-		$data = array('vendor' => $vendor, 'mitra' => $mitra );
+		$data = array('vendor' => $vendor, 'mitra' => $mitra , 'curs' => $curs);
 
 		$this->load->view('addDokumen', $data);
 
@@ -472,8 +473,9 @@ class home extends CI_Controller
 		$mitra = $this->data->read('tb_mitra')->result_array();
 
 		$read = $this->data->read('tb_dokumen', 'dok_id', $id)->result_array();
+		$curs = $this->data->read('tb_currency')->result_array();
 
-		$data = array('id' => $id, 'read' => $read, 'vdL' => $vendor, 'mtL' => $mitra );
+		$data = array('id' => $id, 'read' => $read, 'vdL' => $vendor, 'mtL' => $mitra , 'curs' => $curs);
 
 		$this->load->view('editDokumen', $data);
 

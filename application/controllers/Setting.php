@@ -17,6 +17,12 @@ class setting extends CI_Controller
 		$data = array('role' => $role, 'read' => $read);
 		$this->load->view('user', $data);
 	}
+	public function departemen()
+	{
+		$read = $this->data->read('tb_dep')->result_array();
+		$data = array('dep' => $read);
+		$this->load->view('departmen', $data);
+	}
 	public function deleteStg()
 	{
 		$name = $this->input->post('name');

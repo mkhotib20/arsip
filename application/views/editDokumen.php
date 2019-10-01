@@ -379,7 +379,9 @@ foreach ($read as $r) {
                         <span class="label">Currency</span>
 
                         <select name="currency" class="form-control">
-                            <option>Rp</option>
+                        <?php foreach ($curs as $cur) { ?>
+                            <option value="<?php  echo $cur['name'] ?>" ><?php  echo $cur['name'] ?></option>
+                            <?php } ?>
                         </select>
                       </div>
 
