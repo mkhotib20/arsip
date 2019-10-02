@@ -120,6 +120,9 @@ class home extends CI_Controller
 		$no_dok_masuk = $this->input->post("no_dok_masuk");
 
 		$tgl_keuangan = $this->input->post("tgl_keuangan");
+		if (isset($tgl_akt_out) && !isset($tgl_keuangan) ) {
+			$tgl_keuangan = $tgl_akt_out;
+		}
 
 		$vendor = $this->input->post("vendor");
 
