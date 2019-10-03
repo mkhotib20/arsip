@@ -4,9 +4,9 @@
  */
 class data extends CI_Model
 {
-	public function isExist($id)
+	public function isExist($id, $user)
 	{
-		return $this->db->query("SELECT * FROM tb_dokumen WHERE dok_id = '$id' ");
+		return $this->db->query("SELECT * FROM tb_notification WHERE notif_doc = '$id' AND notif_user = '$user' ");
 	}
 	public function getArsip()
 	{

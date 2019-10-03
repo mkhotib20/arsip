@@ -73,11 +73,12 @@ class home extends CI_Controller
 		//echo $tgl_akt_in = $this->input->post("tgl_akt_in");
 
 		$verificator = $this->input->post("verificator");
+		$cur_user = $this->session->userdata('level');
 
 		
 
 		$dok_id = $this->input->post('dok_id');
-		$jumlahDok = $this->data->isExist($dok_id)->num_rows();
+		$jumlahDok = $this->data->isExist($dok_id, $cur_user)->num_rows();
 
 		if ($this->input->post('pengembalian') == 'on') {
 
@@ -208,7 +209,7 @@ class home extends CI_Controller
 		if ($this->data->replace('tb_dokumen', $data)) {
 			if ($jumlahDok == 0 ) {
 				$level = $this->session->userdata('level');
-				switch ($this->session->userdata('level')) {
+				switch ($cur_user) {
 
 					case 1:
 
