@@ -5,12 +5,11 @@
 
 
 <head>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Login Page Aplikasi Pengarsipan PT. Dahana </title>
 	<meta charset="utf-8">
-
-	<title>Welcome to CodeIgniter</title>
-
-
 
 	<style type="text/css">
 
@@ -218,7 +217,7 @@
 
 	<!--Custom styles-->
 
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/style.css">
 
 </head>
 
