@@ -19,7 +19,7 @@
                       <div class="form-group">
                         <span class="label">Nomor Surat</span>
                         <input type="text" value="<?php echo $no_surat ?>" class="form-control" name="no_surat">
-                        <input type="text" value="<?php echo $id ?>" class="form-control date" hidden name="arsip_id">
+                        <input type="text" hidden value="<?php echo $id ?>" class="form-control"  name="arsip_id">
                       </div>
                   </div>
                   <div class="col-6 col-md-4">

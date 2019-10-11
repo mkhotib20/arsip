@@ -45,7 +45,7 @@ class pengarsipan extends CI_Controller
     public function tambah()
     {
         $data = array(
-            'id' => 'DOK'.time().rand(),
+            'id' => '',
             'no_surat' => '', 
             'no_gedung' => '',
             'no_rak' => '',
