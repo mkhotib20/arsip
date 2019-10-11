@@ -100,7 +100,7 @@
 
       <!-- Sidebar - Brand -->
 
-      <img src="http://www.dahana.id/themes/dahana/images/dahana-logo.jpg">
+      <img style="width: 100%;" src="<?= base_url() ?>logo.jpg">
 
 
 
@@ -147,7 +147,7 @@
       </li>
       <li class="nav-item <?php if($this->uri->segment(2)=='pengarsipan'){echo 'active';} ?>">
   <a class="nav-link" href="<?php echo base_url('dokumen/pengarsipan') ?>">
-    <i class="fas fa-fw fa-table"></i>
+    <i class="fas fa-fw fa-archive "></i>
     <span>Pengarsipan Dokumen</span></a>
 </li>
       
