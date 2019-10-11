@@ -469,9 +469,8 @@ class home extends CI_Controller
 	}
 
 	public function editDokumen($id)
-
 	{
-
+		$this->data->markAsRead($username, $dok_id);
 		$vendor = $this->data->read('tb_vendor')->result_array();
 
 		$mitra = $this->data->read('tb_mitra')->result_array();
