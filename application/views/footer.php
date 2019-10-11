@@ -92,8 +92,6 @@
   $('.date').inputmask({"mask": "99/99/9999"});
   $('input').attr('readonly', 'true');
   $('input[type="checkbox"]').attr('disabled', 'true');
-  $('select[name="vendor"]').attr('disabled', 'true');
-  $('select[name="unit_kerja"]').attr('disabled', 'true');
   var level = '<?php echo $level ?>'
 
   switch (level) {
@@ -109,8 +107,6 @@
       $('input[name="no_surat"]').removeAttr('readonly')
       $('input[name="tgl_pengarsipan"]').removeAttr('readonly')
       $('input[name="no_gedung"]').removeAttr('readonly')
-        $('select[name="vendor"]').removeAttr('disabled')
-        $('select[name="unit_kerja"]').removeAttr('disabled')
       $('input[name="no_rak"]').removeAttr('readonly')
       $('input[name="nominal"]').removeAttr('readonly')
       break;
@@ -148,7 +144,7 @@
         $('input[name="pospk"]').removeAttr('readonly')
         $('input[name="no_surat"]').removeAttr('readonly')
         $('input[type="checkbox"]').removeAttr('disabled')
-        $('input[name="vendor"]').removeAttr('readonly')
+        // $('input[name="vendor"]').removeAttr('readonly')
         $('input[name="verificator"]').removeAttr('readonly')
       }
       

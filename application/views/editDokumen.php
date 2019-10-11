@@ -306,19 +306,7 @@ foreach ($read as $r) {
 
                         <span class="label">Unit Kerja</span>
 
-                         <!-- <input type="text" value="<?php //echo $unit_kerja ?>" name="unit_kerja" class="form-control slct"> -->
-
-                        <select class="form-control" name="unit_kerja" >
-
-                          <option selected="" disabled="" >--pilih unit kerja--</option>
-
-                          <?php foreach ($mtL as $mt) { ?>
-
-                          <option <?php if($unit_kerja == $mt['mitra_nama']){echo 'selected';} ?> ><?php echo $mt['mitra_nama'] ?></option>
-
-                          <?php } ?>
-
-                        </select>
+                         <input type="text" value="<?php echo $unit_kerja ?>" name="unit_kerja" class="form-control">
 
                       </div>
 
@@ -353,21 +341,7 @@ foreach ($read as $r) {
                       <div class="form-group">
 
                         <span class="label">Nama Vendor</span>
-
-                         <!--<input type="text" value="<?php echo $vendor ?>" name="vendor" class="form-control slct">
--->
-                          <select class="form-control" name="vendor" >
-
-                            <option selected="" disabled="" >--pilih vendor--</option>
-
-                            <?php foreach ($vdL as $vd) { ?>
-
-                            <option <?php if($vendor==$vd['vendor_nama']){echo 'selected';} ?> ><?php echo $vd['vendor_nama'] ?></option>
-
-                            <?php } ?>
-
-                          </select>
-
+                         <input type="text" readonly value="<?php echo $vendor ?>" name="vendor" class="form-control">
                       </div>
 
                   </div>
