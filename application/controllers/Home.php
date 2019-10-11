@@ -209,8 +209,8 @@ class home extends CI_Controller
 		if ($this->data->replace('tb_dokumen', $data)) {
 			if ($jumlahDok == 0 ) {
 				$level = $this->session->userdata('level');
+				$notif['notif_pengirim']=$cur_user;
 				switch ($cur_user) {
-
 					case 1:
 
 						if ($tgl_pajak_in != '') {
@@ -227,7 +227,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}
 
@@ -251,7 +251,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}elseif ($tgl_akt_in != '') {
 
@@ -267,7 +267,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}elseif ($tgl_pajak_in != '') {
 
@@ -283,7 +283,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}elseif ($tgl_admin_in != '') {
 
@@ -299,7 +299,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}
 
@@ -321,7 +321,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}
 
@@ -343,7 +343,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}
 
@@ -367,7 +367,7 @@ class home extends CI_Controller
 
 							);
 
-							$this->data->insert('tb_notification', $notif);
+							$notif['notif_pengirim'] = $cur_user; $this->data->insert('tb_notification', $notif);
 
 						}
 

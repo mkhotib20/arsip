@@ -6,7 +6,7 @@ class data extends CI_Model
 {
 	public function isExist($id, $user)
 	{
-		return $this->db->query("SELECT * FROM tb_notification WHERE notif_doc = '$id' AND notif_user = '$user' ");
+		return $this->db->query("SELECT * FROM tb_notification WHERE notif_doc = '$id' AND notif_pengirim = '$user' ");
 	}
 	public function getArsip()
 	{
