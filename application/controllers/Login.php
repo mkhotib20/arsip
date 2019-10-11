@@ -39,13 +39,13 @@ class login extends CI_Controller
 		        redirect(base_url('dokumen'));
 			}
 			else{
-					echo '<div class="alert alert-danger">Login failed.</div>';
-					$this->session->set_flashdata('msg', '<script>swal("Failed", "Data dan password anda salah", "error")</script>');
+					// echo '<div class="alert alert-danger">Login failed.</div>';
+					$this->session->set_flashdata('msg', '<script>gagal()</script>');
 		          redirect(base_url('login'));
 			}
 		}
 		else{
-					$this->session->set_flashdata('msg', '<script>swal("Failed", "Data dan password anda salah", "error")</script>');
+					$this->session->set_flashdata('msg', '<script>gagal()</script>');
 	          redirect(base_url('login'));
 		}
 	}

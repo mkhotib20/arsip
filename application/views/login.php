@@ -218,6 +218,7 @@
 	<!--Custom styles-->
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/izi/css/iziToast.min.css">
 
 </head>
 
@@ -294,13 +295,13 @@
 
   <script src="<?php echo base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?= base_url('assets/') ?>sweetalert.min.js"></script>
 
 
 
   <!-- Custom scripts for all pages-->
 
-  <script src="<?php echo base_url('assets/') ?>js/sb-admin-2.min.js"></script>
+  <script src="<?php echo base_url('assets/izi/') ?>js/iziToast.min.js"></script>
 
 
 
@@ -341,17 +342,19 @@
     })
 
   })
-
+//   gagal()
   function gagal() {
-
-    swal("Gagal!", "Username dan password salah", "error");
-
+	iziToast.error({
+		title: 'Gagal',
+		position: 'topCenter',
+		message: 'Username dan password anda tidak valid',
+	});
   }
 
-  <?php echo $this->session->flashdata('msg') ?>
 
 </script>
 
+<?php echo $this->session->flashdata('msg') ?>
 
 
 </html>
