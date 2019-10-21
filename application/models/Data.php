@@ -51,11 +51,10 @@ class data extends CI_Model
 		$this->db->where($where, $id);
 		return $this->db->delete($table);
 	}
-	public function findReplace($tb, $gedung, $rak, $th)
+	public function findReplace($tb, $gedung, $th)
 	{
 	    $like = '%'.$th.'%';
-		return $this->db->query("update ".$tb." set no_rak = '$rak', 
-		no_gedung = '$gedung'  WHERE no_surat LIKE '$like'");
+		return $this->db->query("update ".$tb." set no_gedung = '$gedung'  WHERE no_surat LIKE '$like'");
 	}
 	public function readUser()
 	{

@@ -32,10 +32,10 @@ class pengarsipan extends CI_Controller
     public function excPindah()
     {
 		$th = $this->input->post('tahun');
-		$no_rak = $this->input->post('no_rak');
+		// $no_rak = $this->input->post('no_rak');
 		$no_gedung = $this->input->post('no_gedung');
-    	$exc1 = $this->data->findReplace('tb_dokumen', $no_gedung, $no_rak, $th);
-    	$exc2 = $this->data->findReplace('tb_arsip', $no_gedung, $no_rak, $th);
+    	$exc1 = $this->data->findReplace('tb_dokumen', $no_gedung, $th);
+    	$exc2 = $this->data->findReplace('tb_arsip', $no_gedung, $th);
 		if($exc1 && $exc2){
 		    redirect('dokumen/mass-move');
         }

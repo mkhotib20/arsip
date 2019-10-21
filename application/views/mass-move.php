@@ -25,12 +25,12 @@
                         <input type="text" class="form-control" name="no_gedung">
                       </div>
                   </div>
-                  <div class="col-6 col-md-4">
+                  <!-- <div class="col-6 col-md-4">
                       <div class="form-group">
                         <span class="label">Nomor Rak</span>
                         <input type="text" class="form-control" name="no_rak">
                       </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-12">
                       <input type="submit" class="btn btn-success btn-block">
                   </div>
