@@ -36,6 +36,7 @@ class pengarsipan extends CI_Controller
 		$no_gedung = $this->input->post('no_gedung');
     	$exc1 = $this->data->findReplace('tb_dokumen', $no_gedung, $th);
     	$exc2 = $this->data->findReplace('tb_arsip', $no_gedung, $th);
+        $this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
 		if($exc1 && $exc2){
 		    redirect('dokumen/mass-move');
         }
