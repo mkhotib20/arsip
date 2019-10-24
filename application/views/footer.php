@@ -140,7 +140,7 @@
         $('input[name="ppn"]').removeAttr('readonly')
         $('input[name="keterangan"]').removeAttr('readonly')
         $('select[name="nominal"]').removeAttr('readonly')
-        $('select[name="jurnal"]').removeAttr('readonly')
+        $('input[name="jurnal"]').removeAttr('readonly')
         $('input[name="pospk"]').removeAttr('readonly')
         $('input[name="no_surat"]').removeAttr('readonly')
         $('input[type="checkbox"]').removeAttr('disabled')
@@ -163,7 +163,7 @@
         $('input[name="ppn"]').removeAttr('readonly')
         $('input[name="keterangan"]').removeAttr('readonly')
         $('select[name="nominal"]').removeAttr('readonly')
-        $('select[name="jurnal"]').removeAttr('readonly')
+        $('input[name="jurnal"]').removeAttr('readonly')
         $('input[name="poskp"]').removeAttr('readonly')
         $('input[type="checkbox"]').removeAttr('disabled')
       }
