@@ -109,10 +109,18 @@
       $('input[name="no_gedung"]').removeAttr('readonly')
       $('input[name="no_rak"]').removeAttr('readonly')
       $('input[name="nominal"]').removeAttr('readonly')
+      $('input[name="vendor"]').remove()
+      $('select[name="vendor"]').show()
+      $('input[name="unit_kerja"]').remove()
+      $('select[name="unit_kerja"]').show()
       break;
     case '2':
       $('input').removeAttr('readonly')
       $('select').removeAttr('readonly')
+      $('input[name="vendor"]').remove()
+      $('select[name="vendor"]').show()
+      $('input[name="unit_kerja"]').remove()
+      $('select[name="unit_kerja"]').show()
       break;
     case '3':
       $('input[name="tgl_keuangan"]').removeAttr('readonly')
@@ -135,6 +143,10 @@
       $('input[name="tgl_akt_out"]').removeAttr('readonly')
       $('input[name="tgl_start"]').removeAttr('readonly')
       $('input[name="tgl_end"]').removeAttr('readonly')
+      $('input[name="vendor"]').remove()
+      $('select[name="vendor"]').show()
+      $('input[name="unit_kerja"]').remove()
+      $('select[name="unit_kerja"]').show()
       if ($('input[name="tgl_akt_in"]').val() != '' ) {
         $('input[name="currency"]').removeAttr('readonly')
         $('input[name="ppn"]').removeAttr('readonly')

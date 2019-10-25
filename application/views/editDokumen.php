@@ -303,9 +303,19 @@ foreach ($read as $r) {
                   <div class="col-6 col-md-4">
 
                       <div class="form-group">
-
+                      
                         <span class="label">Unit Kerja</span>
+                        <select style="display: none" class="form-control" name="unit_kerja" >
 
+                          <option selected="" disabled="" >--pilih unit kerja--</option>
+
+                          <?php foreach ($mtL as $mt) { ?>
+
+                          <option <?= ($mt['mitra_nama'] == $unit_kerja) ? 'selected' : null ?>><?php echo $mt['mitra_nama'] ?></option>
+
+                          <?php } ?>
+
+                        </select>
                          <input type="text" value="<?php echo $unit_kerja ?>" name="unit_kerja" class="form-control">
 
                       </div>
@@ -341,6 +351,16 @@ foreach ($read as $r) {
                       <div class="form-group">
 
                         <span class="label">Nama Vendor</span>
+                        <select style="display: none" class="form-control" name="vendor" >
+                          <option selected="" disabled="" >--pilih vendor--</option>
+
+                          <?php foreach ($vdL as $vd) { ?>
+
+                          <option <?= ($vd['vendor_nama'] == $vendor) ? 'selected' : null ?> ><?php echo $vd['vendor_nama'] ?></option>
+
+                          <?php } ?>
+
+                        </select>
                          <input type="text" readonly value="<?php echo $vendor ?>" name="vendor" class="form-control">
                       </div>
 
@@ -354,7 +374,7 @@ foreach ($read as $r) {
 
                         <select name="currency" class="form-control">
                         <?php foreach ($curs as $cur) { ?>
-                            <option value="<?php  echo $cur['name'] ?>" ><?php  echo $cur['name'] ?></option>
+                            <option  value="<?php  echo $cur['name'] ?>" ><?php  echo $cur['name'] ?></option>
                             <?php } ?>
                         </select>
                       </div>
