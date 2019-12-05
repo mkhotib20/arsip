@@ -20,7 +20,7 @@
 
 		<?php } ?>
 
-		<li class="breadcrumb-item active"><?php echo $perihal;//ucfirst($this->uri->segment($identity)); ?></li>
+		<li class="breadcrumb-item active"><?php ucfirst($this->uri->segment($identity)); ?></li>
 
 	</ol>
 

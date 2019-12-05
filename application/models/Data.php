@@ -54,7 +54,7 @@ class data extends CI_Model
 	public function findReplace($tb, $gedung, $th)
 	{
 	    $like = '%'.$th.'%';
-		return $this->db->query("update ".$tb." set no_gedung = '$gedung'  WHERE no_surat LIKE '$like'");
+		return $this->db->query("update ".$tb." set no_gedung = '$gedung'  WHERE bantex LIKE '$like'");
 	}
 	public function readUser()
 	{

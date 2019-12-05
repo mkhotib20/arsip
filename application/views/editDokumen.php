@@ -23,12 +23,14 @@ foreach ($read as $r) {
   $tgl_bayar = $r["tgl_bayar"];
 
   $bantex = $r["bantex"];
+  
+  $no_faktur = $r["no_faktur"];
 
   $unit_kerja = $r["unit_kerja"];
 
   $no_surat = $r["no_surat"];
 
-  $no_dok_masuk = $r["no_dok_masuk"];
+  $jenis_dok = $r["jenis_dok"];
 
   $tgl_keuangan = $r["tgl_keuangan"];
 
@@ -59,6 +61,7 @@ foreach ($read as $r) {
   $no_gedung = $r["no_gedung"];
 
   $no_rak = $r["no_rak"];
+  
 
 }
 
@@ -88,7 +91,7 @@ foreach ($read as $r) {
 
               
 
-            </div>
+             </div>
 
             <div class="card-body">
 
@@ -214,7 +217,7 @@ foreach ($read as $r) {
 
                   </div>
 
-                  <div class="col-6 col-md-6">
+                  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -226,13 +229,25 @@ foreach ($read as $r) {
 
                   </div>
 
-                  <div class="col-6 col-md-6">
+                  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
                         <span class="label">Nomor Rak</span>
 
                         <input type="text" value="<?php echo $no_rak ?>" class="form-control" name="no_rak">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Bantex</span>
+
+                        <input type="text" value="<?php echo $bantex ?>" class="form-control" name="bantex">
 
                       </div>
 
@@ -250,79 +265,7 @@ foreach ($read as $r) {
 
                   </div>
 
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Verificator</span>
-
-                        <input type="text" value="<?php echo $verificator ?>" class="form-control" name="verificator">
-
-                        
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Keterangan</span>
-
-                        <input type="text" value="<?php echo $keterangan ?>" class="form-control" name="keterangan">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. Dok. SAP</span>
-
-                        <input type="text" value="<?php echo $sap_no ?>" class="form-control" name="sap_no">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Bantex</span>
-
-                        <input type="text" value="<?php echo $bantex ?>" class="form-control" name="bantex">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-                      
-                        <span class="label">Unit Kerja</span>
-                        <select style="display: none" class="form-control" name="unit_kerja" >
-
-                          <option selected="" disabled="" >--pilih unit kerja--</option>
-
-                          <?php foreach ($mtL as $mt) { ?>
-
-                          <option <?= ($mt['mitra_nama'] == $unit_kerja) ? 'selected' : null ?>><?php echo $mt['mitra_nama'] ?></option>
-
-                          <?php } ?>
-
-                        </select>
-                         <input type="text" value="<?php echo $unit_kerja ?>" name="unit_kerja" class="form-control">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
+                   <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -333,91 +276,23 @@ foreach ($read as $r) {
                       </div>
 
                   </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. Dokumen Masuk</span>
-
-                        <input type="text" value="<?php echo $no_dok_masuk ?>" class="form-control" name="no_dok_masuk">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Nama Vendor</span>
-                        <select style="display: none" class="form-control" name="vendor" >
-                          <option selected="" disabled="" >--pilih vendor--</option>
-
-                          <?php foreach ($vdL as $vd) { ?>
-
-                          <option <?= ($vd['vendor_nama'] == $vendor) ? 'selected' : null ?> ><?php echo $vd['vendor_nama'] ?></option>
-
-                          <?php } ?>
-
-                        </select>
-                         <input type="text" readonly value="<?php echo $vendor ?>" name="vendor" class="form-control">
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
+				  
+				  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
                         <span class="label">Currency</span>
-
+                        <input type="text" disabled value="<?php echo $currency ?>" class="form-control" name="currency">
                         <select name="currency" class="form-control">
                         <?php foreach ($curs as $cur) { ?>
-                            <option  value="<?php  echo $cur['name'] ?>" ><?php  echo $cur['name'] ?></option>
+                            <option <?= ($currency == $cur['name']) ? 'selected' : ''; ?> value="<?= $cur['name'] ?>" ><?php  echo $cur['name'] ?></option>
                             <?php } ?>
                         </select>
                       </div>
 
                   </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Nominal</span>
-
-                        <input type="text" value="<?php echo $nominal ?>" class="form-control" name="nominal">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Nama Dokumen</span>
-
-                        <input type="text" value="<?php echo $perihal ?>" class="form-control" name="perihal">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. PPN</span>
-
-                        <input type="text" value="<?php echo $ppn ?>" class="form-control" name="ppn">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
+				  
+				  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -428,8 +303,32 @@ foreach ($read as $r) {
                       </div>
 
                   </div>
+				  
+				   <div class="col-6 col-md-4">
 
-                  <div class="col-6 col-md-4">
+                      <div class="form-group">
+
+                        <span class="label">Nama Dokumen</span>
+
+                        <input type="text" value="<?php echo $perihal ?>" class="form-control" name="perihal">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Nominal</span>
+
+                        <input type="text" value="<?php echo $nominal ?>" class="form-control" name="nominal">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -437,13 +336,132 @@ foreach ($read as $r) {
 
                         <input type="text" value="<?php echo $pospk ?>" class="form-control" name="pospk">
 
-                        <div class="checkbox">
-
-                          <label><input type="checkbox" name="pengembalian" <?php if($pengembalian == 1){echo 'checked';} ?> > Status Pengembalian</label>
-
                         </div>
 
                       </div>
+					  
+					  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Jenis Dokumen</span>
+                        <input type="text" disabled value="<?= $jenis_dok ?>" class="form-control" name="jenis_dok">
+
+                        <select name="jenis_dok" class="form-control">
+                        <?php foreach ($jn as $jen) { ?>
+                            <option  <?= ($jenis_dok == $jen['jenis_nama']) ? 'selected' : ''; ?> value="<?php  echo $jen['jenis_nama'] ?>" ><?php  echo $jen['jenis_nama'] ?></option>
+                            <?php } ?>
+                        </select>
+                      </div>
+
+                  </div>
+					  				  				  
+				  	 <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Keterangan</span>
+
+                        <input type="text" value="<?php echo $keterangan ?>" class="form-control" name="keterangan">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">No. PPN</span>
+
+                        <input type="text" value="<?php echo $ppn ?>" class="form-control" name="ppn">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Nama Vendor</span>
+                         <input type="text" readonly value="<?php echo $vendor ?>" name="vendor" class="form-control">
+                         <select class="form-control" name="vendor" >
+
+                          <option selected="" disabled="" >--pilih vendor--</option>
+
+                          <?php foreach ($vdL as $vd) { ?>
+
+                          <option <?= ($vd['vendor_nama']==$vendor) ? 'selected' : '' ?> ><?php echo $vd['vendor_nama'] ?></option>
+
+                          <?php } ?>
+
+                          </select>
+                      </div>
+
+                  </div>
+				  
+				    <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">No.Faktur</span>
+						
+						 <input type="text" value="<?php echo $no_faktur ?>" class="form-control" name="no_faktur">
+
+                      </div>
+
+                  </div>
+				  
+				 <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">No. Voucher</span>
+
+                        <input type="text" value="<?php echo $sap_no ?>" class="form-control" name="sap_no">
+
+                      </div>
+
+                  </div>
+				  
+				 <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Unit Kerja</span>
+
+                         <input type="text" value="<?php echo $unit_kerja ?>" name="unit_kerja" class="form-control">
+                         <select class="form-control" name="unit_kerja" >
+
+                          <option selected="" disabled="" >--pilih unit kerja--</option>
+
+                          <?php foreach ($mtL as $mt) { ?>
+
+                          <option  <?= ($mt['mitra_nama']==$unit_kerja) ? 'selected' : '' ?>><?php echo $mt['mitra_nama'] ?></option>
+
+                          <?php } ?>
+
+                          </select>
+                      </div>
+
+                  </div>
+				  
+				 <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Verificator</span>
+
+                        <input type="text" value="<?php echo $verificator ?>" class="form-control" name="verificator">
+
+                       <div class="checkbox">
+
+                          <label><input type="checkbox" name="pengembalian" <?php if($pengembalian == 1){echo 'checked';} ?> > Status Pengembalian</label>
+						  
+					  </div>
+
+                  </div>
 
                   </div>
 

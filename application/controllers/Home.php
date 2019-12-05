@@ -117,13 +117,16 @@ class home extends CI_Controller
 		$unit_kerja = $this->input->post("unit_kerja");
 
 		$no_surat = $this->input->post("no_surat");
+		
+		$no_faktur = $this->input->post("no_faktur");
 
-		$no_dok_masuk = $this->input->post("no_dok_masuk");
+		$jenis_dok = $this->input->post("jenis_dok");
 
 		$tgl_keuangan = $this->input->post("tgl_keuangan");
 		if (isset($tgl_akt_out) && !isset($tgl_keuangan) ) {
 			$tgl_keuangan = $tgl_akt_out;
 		}
+		$jenis_dok = $this->input->post("jenis_dok");
 
 		$vendor = $this->input->post("vendor");
 
@@ -182,8 +185,10 @@ class home extends CI_Controller
 				'unit_kerja' => $unit_kerja,
 
 				'no_surat' => $no_surat,
+				
+				'no_faktur' => $no_faktur,
 
-				'no_dok_masuk' => $no_dok_masuk,
+				'jenis_dok' => $jenis_dok,
 
 				'tgl_keuangan' => $tgl_keuangan,
 
@@ -461,8 +466,8 @@ class home extends CI_Controller
 
 		$mitra = $this->data->read('tb_mitra')->result_array();
 		$curs = $this->data->read('tb_currency')->result_array();
-
-		$data = array('vendor' => $vendor, 'mitra' => $mitra , 'curs' => $curs);
+		$jn = $this->data->read('tb_jenis')->result_array();
+		$data = array('vendor' => $vendor, 'mitra' => $mitra , 'curs' => $curs, 'jn' => $jn );
 
 		$this->load->view('addDokumen', $data);
 
@@ -470,21 +475,27 @@ class home extends CI_Controller
 
 	public function editDokumen($id)
 	{
-		$this->data->markAsRead($username, $dok_id);
+		$username = $this->session->userdata('username');
+		$this->data->markAsRead($username, $id);
 		$vendor = $this->data->read('tb_vendor')->result_array();
 
 		$mitra = $this->data->read('tb_mitra')->result_array();
 
 		$read = $this->data->read('tb_dokumen', 'dok_id', $id)->result_array();
 		$curs = $this->data->read('tb_currency')->result_array();
+		$jn = $this->data->read('tb_jenis')->result_array();
 
-		$data = array('id' => $id, 'read' => $read, 'vdL' => $vendor, 'mtL' => $mitra , 'curs' => $curs);
+		$data = array('id' => $id, 'read' => $read, 'vdL' => $vendor, 'mtL' => $mitra , 'curs' => $curs, 'jn' => $jn);
 
 		$this->load->view('editDokumen', $data);
 
 	}
 
 	public function currency()
+	{
+		
+	}
+	public function jenis()
 	{
 		
 	}

@@ -3,19 +3,19 @@
         <div class="container-fluid">
 
           <?php //include 'breadcumb.php'; ?>
-          <h1 class="h3 mb-2 text-gray-800">List Currency</h1>
+          <h1 class="h3 mb-2 text-gray-800">List Jenis Dokumen</h1>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Form</h6>
             </div>
             <div class="card-body">
-              <?php echo form_open('setting/saveCur') ?>
+              <?php echo form_open('setting/saveJen') ?>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-gorup">
-                      <label>Nama Currency</label>
-                      <input type="text" class="form-control" name="cur">
+                      <label>Jenis Dokumen</label>
+                      <input type="text" class="form-control" name="jen">
                       <input type="text" value="" hidden="" name="id">
                     </div>
                   </div>
@@ -36,16 +36,16 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Currency</th>
+                      <th>Jenis Dokumen</th>
                       <th hidden="">Nama Vendor</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($cur as $vd) { ?>
+                    <?php foreach ($jen as $vd) { ?>
                     <tr>
                       <td></td>
-                      <td><?php echo $vd['name'] ?></td>
+                      <td><?php echo $vd['jenis_nama'] ?></td>
                       <td hidden="" ><?php echo $vd['id'] ?></td>
                       <td style="text-align: center;" ><a href="#" id="delete" class="btn btn-danger btn-circle btn-md"><i class="fas fa-trash"></i></a> <a id="edit" href="#" class="btn btn-warning btn-circle btn-md"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
@@ -63,7 +63,7 @@
     var currentrow = $(this).closest('tr')
     var vd = currentrow.find('td:eq(1)').text()
     var id = currentrow.find('td:eq(2)').text()
-    $('input[name="cur"]').val(vd)
+    $('input[name="jen"]').val(vd)
     $('input[name="id"]').val(id)
   })
     $('#dataTable').on('click', '#delete', function(){
@@ -71,7 +71,7 @@
     var vd = currentrow.find('td:eq(1)').text()
     var id = currentrow.find('td:eq(2)').text()
       swal({
-        title: "Yakin akan menghapus currency "+vd+" ?",
+        title: "Yakin akan menghapus unit kerja "+vd+" ?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -83,7 +83,7 @@
               type : "POST",
               url  : "<?php echo base_url('setting/deleteStg')?>",
               dataType : "JSON",
-              data : {id:id, name:'id', tbl:'tb_currency'},
+              data : {id:id, name:'id', tbl:'tb_jenis'},
                success: function(data){
                 swal("Sukses", "Data anda terhapus", "success");
                 currentrow.remove()              

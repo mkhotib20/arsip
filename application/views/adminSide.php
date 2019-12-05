@@ -21,6 +21,7 @@
         <a class="collapse-item" href="<?php echo base_url('setting/currency') ?>">Currency</a>
 
         <a class="collapse-item" href="<?php echo base_url('setting/unit-kerja') ?>">Unit Kerja</a>
+		<a class="collapse-item" href="<?php echo base_url('setting/jenis') ?>">Jenis Dokumen</a>
 
       </div>
 

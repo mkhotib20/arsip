@@ -142,7 +142,7 @@
 
           <i class="fas fa-fw fa-table"></i>
 
-          <span>Tabel Dokumen</span></a>
+          <span>Tracking Dokumen</span></a>
 
       </li>
       <li class="nav-item <?php if($this->uri->segment(2)=='pengarsipan'){echo 'active';} ?>">

@@ -40,15 +40,15 @@
 
                       <th>No</th>
                       <th>No. Surat</th>
-                      <th>No Rak</th>
-                      <th>No Gedung</th>
                       <th>Nama Dokumen</th>
+					  <th>Jenis Dok</th>
                       <th>Tanggal Bayar</th>
                       <th>Nama Vendor</th>
-                      <th>No. Dok SAP</th>
+                      <th>No. Voucher</th>
                       <th>Currency</th>
-
-                      <th>Amount</th>
+                      <th>Nominal</th>
+					  
+					  
 
                       <th style="width: 10px">Status</th>
 
@@ -108,11 +108,9 @@
 
                       <td><?php echo $r['no_surat'] ?></td>
 
-                      <td><?php echo $r['no_rak'] ?></td>
-
-                      <td><?php echo $r['no_gedung'] ?></td>
-
                       <td><?php echo $r['perihal'] ?></td>
+					  
+					   <td><?php echo $r['jenis_dok'] ?></td>
 
                       <td><?php echo $r['tgl_bayar'] ?></td>
 
@@ -123,6 +121,8 @@
                       <td><?php echo $r['currency'] ?></td>
 
                       <td><?php echo $r['nominal'] ?></td>
+					  
+					 
 
                       <td><?php echo $status; ?></td>
 
@@ -178,7 +178,7 @@ $(document).ready(function(){
 
       swal({
 
-        title: "Yakin akan menghapus dokumen "+id+" ?",
+        title: "Yakin akan menghapus dokumen ?",
 
         icon: "warning",
 

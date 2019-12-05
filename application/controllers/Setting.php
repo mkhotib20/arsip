@@ -48,6 +48,12 @@ class setting extends CI_Controller
 		$data = array('cur' => $read);
 		$this->load->view('cur', $data);
 	}
+	public function jenis()
+	{
+		$read = $this->data->read('tb_jenis')->result_array();
+		$data = array('jen' => $read);
+		$this->load->view('jen', $data);
+	}
 	public function saveUser()
 	{
 		$username = $this->input->post('username');
@@ -124,6 +130,21 @@ class setting extends CI_Controller
 		if ($this->data->replace('tb_currency', $data)) {
 			$this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
 			redirect(base_url('setting/currency'));
+		}
+	}
+	public function saveJen()
+	{
+		$uk = $this->input->post('jen');
+		$id = $this->input->post('id');
+
+		$data = array(
+			'id' => $id,
+			'jenis_nama' => $uk
+
+			 );
+		if ($this->data->replace('tb_jenis', $data)) {
+			$this->session->set_flashdata('msg', '<script>swal("Sukses", "Data anda tersimpan", "success")</script>');
+			redirect(base_url('setting/jenis'));
 		}
 	}
 

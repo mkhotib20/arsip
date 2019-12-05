@@ -89,7 +89,7 @@
 
 			.social_icon{
 
-			border-radius: 10px;
+			border-radius: 5%;
 
 			border: 2px solid white;
 
@@ -238,7 +238,7 @@
 
 				<div class="d-flex justify-content-end social_icon">
 
-					<img style="border-radius: 10px" src="<?php echo base_url() ?>logo.jpg">
+					<img src="<?php echo base_url() ?>logo.jpg">
 
 				</div>
 

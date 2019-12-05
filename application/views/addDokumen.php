@@ -10,12 +10,8 @@
 
           <h1 class="h3 mb-2 text-gray-800">Input Dokumen</h1>
 
-
-
           <div class="card shadow mb-4">
-
             <div class="card-header py-3">
-
               <h6 class="m-0 font-weight-bold text-primary">Form </h6>
 
             </div>
@@ -144,7 +140,7 @@
 
                   </div>
 
-                  <div class="col-6 col-md-6">
+                  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -155,14 +151,24 @@
                       </div>
 
                   </div>
-
-                  <div class="col-6 col-md-6">
+                  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
                         <span class="label">Nomor Rak</span>
 
                         <input type="text" class="form-control" name="no_rak">
+
+                      </div>
+
+                  </div>
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Nama Batex</span>
+
+                        <input type="text" class="form-control" name="bantex">
 
                       </div>
 
@@ -174,81 +180,9 @@
 
                 <div id="req" class="row">
 
+
                   <div class="col-md-12">
-
                     <h4>Detail Dokumen</h4><hr>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Verificator</span>
-
-                        <input type="text" class="form-control" name="verificator">
-
-                        <input type="text" name="dok_id" hidden="" value="<?php echo 'DOK'.time().rand() ?>">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Keterangan</span>
-
-                        <input type="text" class="form-control" name="keterangan">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. Dok. SAP</span>
-
-                        <input type="text" class="form-control" name="sap_no">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Bantex</span>
-
-                        <input type="text" class="form-control" name="bantex">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Unit Kerja</span>
-
-                        <select class="form-control" name="unit_kerja" >
-
-                          <option selected="" disabled="" >--pilih unit kerja--</option>
-
-                          <?php foreach ($mitra as $mt) { ?>
-
-                          <option><?php echo $mt['mitra_nama'] ?></option>
-
-                          <?php } ?>
-
-                        </select>
-
-                      </div>
 
                   </div>
 
@@ -261,22 +195,110 @@
                         <input type="text" class="form-control" name="no_surat">
 
                       </div>
-
                   </div>
+				  
+				  <div class="col-6 col-md-4">
+				  
+					<div class="form-group">
 
-                  <div class="col-6 col-md-4">
+                        <span class="label">Currency</span>
+                        <select name="currency" class="form-control">
+                            <?php foreach ($curs as $cur) { ?>
+                            <option><?php  echo $cur['name'] ?></option>
+                            <?php } ?>
+                        </select>
+
+                      </div>
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
-                        <span class="label">No. Dokumen Masuk</span>
+                        <span class="label">No. Jurnal</span>
 
-                        <input type="text" class="form-control" name="no_dok_masuk">
+                        <input type="text" class="form-control" name="jurnal">
+
+                      </div>
+					
+					</div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Nama Dokumen</span>
+
+                        <input type="text" class="form-control" name="perihal">
 
                       </div>
 
                   </div>
 
-                  <div class="col-6 col-md-4">
+					<div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Nominal</span>
+
+                        <input type="text" class="form-control" name="nominal">
+
+                      </div>
+
+                  </div>
+				  
+					<div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">PO/SPK/NO</span>
+
+                        <input type="text" class="form-control" name="pospk">
+
+                       </div>
+
+                      </div>
+					  				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Jenis Dokumen</span>
+                        <select name="currency" class="form-control">
+                            <?php foreach ($jn as $jen) { ?>
+                            <option><?php  echo $jen['jenis_nama'] ?></option>
+                            <?php } ?>
+                        </select>
+
+                      </div>
+
+                  </div>
+				  
+				  	 <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Keterangan</span>
+
+                        <input type="text" class="form-control" name="keterangan">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">No. PPN</span>
+
+                        <input type="text" class="form-control" name="ppn">
+
+                      </div>
+
+                  </div>
+				 			  
+				  <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
@@ -297,87 +319,72 @@
                       </div>
 
                   </div>
-
-                  <div class="col-6 col-md-4">
+				  
+				    <div class="col-6 col-md-4">
 
                       <div class="form-group">
 
-                        <span class="label">Currency</span>
-                        <select name="currency" class="form-control">
-                            <?php foreach ($curs as $cur) { ?>
-                            <option><?php  echo $cur['name'] ?></option>
-                            <?php } ?>
+                        <span class="label">No.Faktur</span>
+
+                        <input type="text" class="form-control" name="no_faktur">
+
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+				  
+				   <div class="form-group">
+
+                        <span class="label">No. Voucher</span>
+
+                        <input type="text" class="form-control" name="sap_no">
+						
+                      </div>
+
+                  </div>
+				  
+				  <div class="col-6 col-md-4">
+
+                      <div class="form-group">
+
+                        <span class="label">Unit Kerja</span>
+
+                        <select class="form-control" name="unit_kerja" >
+
+                          <option selected="" disabled="" >--pilih unit kerja--</option>
+
+                          <?php foreach ($mitra as $mt) { ?>
+
+                          <option><?php echo $mt['mitra_nama'] ?></option>
+
+                          <?php } ?>
+
                         </select>
 
                       </div>
 
                   </div>
+				  
+				  <div class="col-6 col-md-4">
+				 
+					  <div class="form-group">
 
-                  <div class="col-6 col-md-4">
+                        <span class="label">Verificator</span>
 
-                      <div class="form-group">
+                        <input type="text" class="form-control" name="verificator">
 
-                        <span class="label">Nominal</span>
-
-                        <input type="text" class="form-control" name="nominal">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">Nama Dokumen</span>
-
-                        <input type="text" class="form-control" name="perihal">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. PPN</span>
-
-                        <input type="text" class="form-control" name="ppn">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">No. Jurnal</span>
-
-                        <input type="text" class="form-control" name="jurnal">
-
-                      </div>
-
-                  </div>
-
-                  <div class="col-6 col-md-4">
-
-                      <div class="form-group">
-
-                        <span class="label">PO/SPK/NO</span>
-
-                        <input type="text" class="form-control" name="pospk">
-
-                        <div class="checkbox">
+                        <input type="text" name="dok_id" hidden="" value="<?php echo 'DOK'.time().rand() ?>">
+						
+						<div class="checkbox">
 
                           <label><input type="checkbox" name="pengembalian" value=""> Status Pengembalian</label>
 
-                        </div>
-
                       </div>
 
-                  </div>
+                  </div>                   
+          				  
+                 </div>
 
                 </div>
 

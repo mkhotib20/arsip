@@ -16,10 +16,10 @@
                     <tr>
                         <th>#</th>
                         <th>No. Surat</th>
+						<th>Jenis Dokumen</th>
+						<th>Departemen</th>
                         <th>Nomor Gedung</th>
                         <th>Nomor Rak</th>
-                        <th>Jenis dokumen</th>
-                        <th>Departemen</th>
                         <th>Bantex</th>
                         <th>Edit Lokasi Dokumen</th>
                     </tr>
@@ -30,10 +30,10 @@
                     <tr>
                         <td></td>
                         <td><?php echo $dk['no_surat'];?></td>
+						<td><?php echo $dk['jenis_dokumen'];?></td>
+						<td><?php echo $dk['dep_name'];?></td>
                         <td><?php echo $dk['no_gedung'];?></td>
-                        <td><?php echo $dk['no_rak'];?></td>
-                        <td><?php echo $dk['jenis_dokumen'];?></td>
-                        <td><?php echo $dk['dep_name'];?></td>
+                        <td><?php echo $dk['no_rak'];?></td>                       
                         <td><?php echo $dk['bantex'];?></td>
                         <td><a href="<?php echo base_url('dokumen/pengarsipan/lokasi/'.$dk['arsip_id']) ?>" 
                         class="btn btn-warning btn-circle btn-md"><i class="fas fa-pencil-alt"></i></a></td>

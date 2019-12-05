@@ -91,17 +91,24 @@
   })
   $('.date').inputmask({"mask": "99/99/9999"});
   $('input').attr('readonly', 'true');
+  
+  $('select[name="currency"]').hide()
+  $('select[name="jenis_dok"]').hide()
   $('input[type="checkbox"]').attr('disabled', 'true');
   var level = '<?php echo $level ?>'
 
   switch (level) {
-    case '1':
+    case '1': //admin
       $('input[name="tgl_admin_in"]').removeAttr('readonly')
       $('input[name="tgl_admin_out"]').removeAttr('readonly')
       $('input[name="bantex"]').removeAttr('readonly')
       $('input[name="tahun"]').removeAttr('readonly')
       $('input[name="no_dok_masuk"]').removeAttr('readonly')
+      
       $('input[name="currency"]').removeAttr('readonly')
+      $('select[name="currency"]').show()
+      $('input[name="currency"]').remove()
+
       $('input[name="keterangan"]').removeAttr('readonly')
       $('input[name="perihal"]').removeAttr('readonly')
       $('input[name="no_surat"]').removeAttr('readonly')
@@ -110,54 +117,76 @@
       $('input[name="no_rak"]').removeAttr('readonly')
       $('input[name="nominal"]').removeAttr('readonly')
       $('input[name="vendor"]').remove()
+      $('input[name="jenis_dok"]').remove()
+      $('select[name="jenis_dok"]').show()
       $('select[name="vendor"]').show()
       $('input[name="unit_kerja"]').remove()
       $('select[name="unit_kerja"]').show()
+      $('select[name="unit_kerja"]').removeAttr('disabled')
+
       break;
-    case '2':
+    case '2': //super admin
       $('input').removeAttr('readonly')
       $('select').removeAttr('readonly')
       $('input[name="vendor"]').remove()
       $('select[name="vendor"]').show()
       $('input[name="unit_kerja"]').remove()
       $('select[name="unit_kerja"]').show()
+      $('select[name="jenis_dok"]').show()
+        $('select[name="currency"]').show()
       break;
-    case '3':
+    case '3': //keuangan
       $('input[name="tgl_keuangan"]').removeAttr('readonly')
       $('input[name="tgl_bayar"]').removeAttr('readonly')
+        $('select[name="currency"]').remove()
       if ($('input[name="tgl_keuangan"]').val() != '' ) {
         $('input[name="sap_no"]').removeAttr('readonly')
+        $('input[name="nominal"]').removeAttr('readonly')
+        $('select[name="vendor"]').remove()
+        $('select[name="unit_kerja"]').remove()
       }
       break;
-    case '4':
+    case '4': //pajak
       $('input[name="tgl_pajak_in"]').removeAttr('readonly')
       $('input[name="tgl_pajak_out"]').removeAttr('readonly')
       if ($('input[name="tgl_pajak_in"]').val() != '' ) {
         $('input[name="nominal"]').removeAttr('readonly')
         $('input[name="currency"]').removeAttr('readonly')
+        $('select[name="currency"]').show()
+        $('input[name="currency"]').remove()
         $('input[name="keterangan"]').removeAttr('readonly')
+        $('select[name="vendor"]').remove()
+        $('select[name="unit_kerja"]').remove()
+      $('input[name="no_faktur"]').removeAttr('readonly')
       }
       break;
-    case '5':
+    case '5': //akt
       $('input[name="tgl_akt_in"]').removeAttr('readonly')
       $('input[name="tgl_akt_out"]').removeAttr('readonly')
       $('input[name="tgl_start"]').removeAttr('readonly')
       $('input[name="tgl_end"]').removeAttr('readonly')
-      $('input[name="vendor"]').remove()
-      $('select[name="vendor"]').show()
-      $('input[name="unit_kerja"]').remove()
-      $('select[name="unit_kerja"]').show()
+        $('input[name="vendor"]').remove()
+        $('select[name="vendor"]').show()
+        $('input[name="unit_kerja"]').remove()
+      $('input[name="jenis_dok"]').remove()
+      $('select[name="jenis_dok"]').show()
+        $('select[name="unit_kerja"]').show()
       if ($('input[name="tgl_akt_in"]').val() != '' ) {
         $('input[name="currency"]').removeAttr('readonly')
+        $('select[name="currency"]').show()
+        $('input[name="currency"]').remove()
         $('input[name="ppn"]').removeAttr('readonly')
         $('input[name="keterangan"]').removeAttr('readonly')
-        $('select[name="nominal"]').removeAttr('readonly')
+        $('input[name="nominal"]').removeAttr('readonly')
         $('input[name="jurnal"]').removeAttr('readonly')
         $('input[name="pospk"]').removeAttr('readonly')
         $('input[name="no_surat"]').removeAttr('readonly')
         $('input[type="checkbox"]').removeAttr('disabled')
-        // $('input[name="vendor"]').removeAttr('readonly')
+        $('input[name="perihal"]').removeAttr('readonly')
         $('input[name="verificator"]').removeAttr('readonly')
+	    $('input[name="vendor"]').removeAttr('readonly')
+        $('input[name="unit_kerja"]').removeAttr('readonly')
+
       }
       
       break;
@@ -172,6 +201,8 @@
     $('input[name="tgl_akt_in"]').change(function(){
       if ($(this).val() != '') {
         $('input[name="currency"]').removeAttr('readonly')
+        $('select[name="currency"]').show()
+        $('input[name="currency"]').remove()
         $('input[name="ppn"]').removeAttr('readonly')
         $('input[name="keterangan"]').removeAttr('readonly')
         $('select[name="nominal"]').removeAttr('readonly')
